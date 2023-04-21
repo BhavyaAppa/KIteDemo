@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="otpData"
+            type="com.example.kite.otpverification.viewmodel.OtpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_20sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_20sdp" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/signUpToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/ic_back_black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/BlackSmallCustomMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/otp" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtConfirm"
+            style="@style/BlackMediumCustomMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/confirmation_code"
+            android:textSize="@dimen/_25sdp"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/signUpToolbar" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtGetOtp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenir_light"
+            android:gravity="start"
+            android:text="@string/confirmation_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtConfirm" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtOTPVerify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:boxStrokeColor="@color/black"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtGetOtp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtOTPVerify"
+                style="@style/TextEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:hint="@string/type_code"
+                android:inputType="number"
+                android:text="@={otpData.otpData.otpCode}"
+                android:textColorHint="#28282D"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirm"
+            style="@style/BlackCustomMaterialButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:onClick="@{()-> otpData.checkValidation()}"
+            android:text="@string/confirm"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtOTPVerify" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/avenir_light"
+            android:text="@string/send_agin_text"
+            android:textAlignment="center"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/btnConfirm" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

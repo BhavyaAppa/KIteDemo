@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="loginData"
+            type="com.example.kite.login.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/inLoginBar"
+            layout="@layout/item_common_toolbar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_20sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_20sdp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtStart"
+            style="@style/BlackMediumCustomMaterialTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/let_s_get_you_started"
+            android:textSize="@dimen/_22sdp"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/inLoginBar" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/avenir_light"
+            android:text="@string/your_next_trip_awaits"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtStart" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtEmail"
+            style="@style/CapitalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:text="@string/email_address"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtNext" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtLoginEmail"
+            style="@style/TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtLoginEmail"
+                style="@style/TextEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:onTextChanged="@{loginData::onEmailTextChanged}"
+                android:text="@={loginData.loginData.customer_email}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPassword"
+            style="@style/CapitalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/password_CAPS"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtLoginEmail" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtLoginPassword"
+            style="@style/TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtPassword">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtLoginPassword"
+                style="@style/TextEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:onTextChanged="@{loginData::onPasswordTextChanged}"
+                android:text="@={loginData.loginData.password}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:fontFamily="@font/avenir_light"
+            android:text="@string/forget_password"
+            android:textColor="@color/bg_button"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtLoginPassword" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/BlackCustomMaterialButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_40sdp"
+            android:layout_marginTop="40dp"
+            android:onClick="@{ () -> loginData.checkValidation()}"
+            android:text="@string/login"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/txtForgetPassword" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtAccountCreate"
+            style="@style/BlackSmallCustomMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/avenir_light"
+            android:text="@string/don_t_have_an_account"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:fontFamily="@font/avenir_light"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/glStart"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

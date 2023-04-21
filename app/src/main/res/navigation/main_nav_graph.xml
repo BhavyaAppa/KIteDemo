@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.kite.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_selectProgramFragment"
+            app:destination="@id/selectProgramFragment"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.kite.intro.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.kite.login.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_selectProgramFragment"
+            app:destination="@id/selectProgramFragment"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.example.kite.forgetpassword.ui.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.kite.signup.ui.SignUpFragment"
+        android:label="SignUpFragment">
+        <action
+            android:id="@+id/action_signUpFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_policyFragment"
+            app:destination="@id/policyFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_termsFragment"
+            app:destination="@id/termsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.example.kite.otpverification.ui.OtpFragment"
+        android:label="OtpFragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/policyFragment"
+        android:name="com.example.kite.policy.PolicyFragment"
+        android:label="PolicyFragment" />
+    <fragment
+        android:id="@+id/termsFragment"
+        android:name="com.example.kite.policy.TermsFragment"
+        android:label="TermsFragment" />
+    <fragment
+        android:id="@+id/selectProgramFragment"
+        android:name="com.example.kite.program.SelectProgramFragment"
+        android:label="SelectProgramFragment">
+        <action
+            android:id="@+id/action_selectProgramFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.kite.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reservationFragment"
+            app:destination="@id/reservationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_selectPaymentFragment"
+            app:destination="@id/selectPaymentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rideHistoryFragment"
+            app:destination="@id/rideHistoryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_selectProgramFragment"
+            app:destination="@id/selectProgramFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.example.kite.support.SupportFragment"
+        android:label="SupportFragment" />
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.example.kite.addcard.ui.AddCardFragment"
+        android:label="AddCardFragment" />
+    <fragment
+        android:id="@+id/rideHistoryFragment"
+        android:name="com.example.kite.history.RideHistoryFragment"
+        android:label="RideHistoryFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.kite.setting.SettingFragment"
+        android:label="SettingFragment">
+
+        <action
+            android:id="@+id/action_settingFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_settingFragment_to_verifyInfoFragment"
+            app:destination="@id/verifyInfoFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_subscriptionFragment"
+            app:destination="@id/subscriptionFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectPaymentFragment"
+        android:name="com.example.kite.selectpayment.SelectPaymentFragment"
+        android:label="SelectPaymentFragment">
+        <action
+            android:id="@+id/action_selectPaymentFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.kite.notification.NotificationFragment"
+        android:label="NotificationFragment" />
+    <fragment
+        android:id="@+id/changeContactFragment"
+        android:name="com.example.kite.changecontact.ChangeContactFragment"
+        android:label="ChangeContactFragment" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.kite.changepassword.ui.ChangePasswordFragment"
+        android:label="ChangePasswordFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.kite.profile.ui.ProfileFragment"
+        android:label="ProfileFragment">
+
+        <action
+            android:id="@+id/action_profileFragment_to_changeContactFragment"
+            app:destination="@id/changeContactFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyInfoFragment"
+        android:name="com.example.kite.verifiedinfo.VerifyInfoFragment"
+        android:label="VerifyInfoFragment" />
+    <fragment
+        android:id="@+id/subscriptionFragment"
+        android:name="com.example.kite.subscription.SubscriptionFragment"
+        android:label="SubscriptionFragment" />
+    <fragment
+        android:id="@+id/reservationFragment"
+        android:name="com.example.kite.reservation.ReservationFragment"
+        android:label="ReservationFragment">
+        <action
+            android:id="@+id/action_reservationFragment_to_bikeListingFragment"
+            app:destination="@id/bikeListingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bikeListingFragment"
+        android:name="com.example.kite.bikelisting.ui.BikeListingFragment"
+        android:label="BikeListingFragment">
+        <action
+            android:id="@+id/action_bikeListingFragment_to_licenceAgreementFragment"
+            app:destination="@id/licenceAgreementFragment" />
+        <action
+            android:id="@+id/action_bikeListingFragment_to_userAgreementFragment"
+            app:destination="@id/userAgreementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/licenceAgreementFragment"
+        android:name="com.example.kite.licenceagreement.LicenceAgreementFragment"
+        android:label="LicenceAgreementFragment">
+        <action
+            android:id="@+id/action_licenceAgreementFragment_to_scanLicenseFragment"
+            app:destination="@id/scanLicenseFragment" />
+        <action
+            android:id="@+id/action_licenceAgreementFragment_to_rentalAgreementFragment"
+            app:destination="@id/rentalAgreementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/needHelpFragment"
+        android:name="com.example.kite.rentalagreement.help.NeedHelpFragment"
+        android:label="NeedHelpFragment" />
+    <fragment
+        android:id="@+id/scanLicenseFragment"
+        android:name="com.example.kite.scanlicense.ScanLicenseFragment"
+        android:label="ScanLicenseFragment">
+        <action
+            android:id="@+id/action_scanLicenseFragment_to_needHelpFragment"
+            app:destination="@id/needHelpFragment" />
+        <action
+            android:id="@+id/action_scanLicenseFragment_to_driverLicenseEntryFragment"
+            app:destination="@id/driverLicenseEntryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rentalAgreementFragment"
+        android:name="com.example.kite.rentalagreement.RentalAgreementFragment"
+        android:label="RentalAgreementFragment" />
+    <fragment
+        android:id="@+id/driverLicenseEntryFragment"
+        android:name="com.example.kite.driverlicenceentry.DriverLicenseEntryFragment"
+        android:label="DriverLicenseEntryFragment" />
+    <fragment
+        android:id="@+id/userAgreementFragment"
+        android:name="com.example.kite.useragreement.UserAgreementFragment"
+        android:label="UserAgreementFragment">
+        <action
+            android:id="@+id/action_userAgreementFragment_to_licenceAgreementFragment"
+            app:destination="@id/licenceAgreementFragment" />
+        <action
+            android:id="@+id/action_userAgreementFragment_to_termsFragment"
+            app:destination="@id/termsFragment" />
+        <action
+            android:id="@+id/action_userAgreementFragment_to_selectProgramFragment"
+            app:destination="@id/selectProgramFragment" />
+        <action
+            android:id="@+id/action_userAgreementFragment_to_guestPropertySelectionFragment"
+            app:destination="@id/guestPropertySelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guestPropertySelectionFragment"
+        android:name="com.example.kite.guestpropertyselection.GuestPropertySelectionFragment"
+        android:label="GuestPropertySelectionFragment" />
+</navigation>
